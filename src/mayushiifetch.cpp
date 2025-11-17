@@ -23,10 +23,10 @@ SDL_Renderer* renderer = nullptr;
 SDL_Texture* texture = nullptr;
 SDL_FRect shape;
 
-fs::path msd = "/home/paul/Pictures/Mayushii☆";
+fs::path msd = "/home/paul/Pictures/Mayushii☆"; // edit path to your picture folder
 std::vector<fs::path> mayushiis;
 int rng;
-float maxWw = 540, maxWh = 540;
+const float maxWw = 600, maxWh = 600; // you can set the maximum size the window will have; the longest side of the image will fit to that. aspect ratio preserved
 
 class MTexture {
     public:
@@ -73,7 +73,7 @@ bool fetch() {
     }
 
     rng = rand() % mayushiis.size();
-    std::string tPath = mayushiis[rng];
+    std::string tPath = mayushiis[rng]; // windows only: necessary to append ".u8string()"
     texture = IMG_LoadTexture(renderer, tPath.c_str());
     if (!texture) {
         cout << "Failed to load the texture: Check for unsupported format." << endl;
@@ -132,6 +132,7 @@ bool action() {
     return true;
 }
 
+// boring boilerplate stuff
 bool init() {
     if (!SDL_Init(SDL_INIT_EVENTS | SDL_INIT_VIDEO)) {
         SDL_LogError(SDL_LOG_CATEGORY_APPLICATION, "Couldn't initialize SDL: %s", SDL_GetError());
