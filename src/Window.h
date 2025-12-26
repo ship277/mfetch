@@ -9,7 +9,7 @@ class Window {
 public:
     Window() {
         SDL_CreateWindowAndRenderer(
-            "tutorial",
+            "mfetch",
             800, 300,
             SDL_WINDOW_OPENGL,
             &window, &renderer

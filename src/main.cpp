@@ -24,7 +24,7 @@ MTexture currentTexture;
 SDL_Texture* texture;
 SDL_FRect shape;
 
-fs::path msd = "/home/paul/Pictures/Mayushii☆"; // edit path to your picture folder
+fs::path p = fs::current_path()/"Mayushii☆";
 std::vector<fs::path> mayushiis;
 int rng;
 const float maxWw = 600, maxWh = 600; // you can set the maximum size the window will have; the longest side of the image will fit to that. aspect ratio preserved
@@ -40,10 +40,10 @@ void fetch(void* AppState) {
     }
 
     rng = rand() % mayushiis.size();
-    std::string tPath = mayushiis[rng]; // windows only: necessary to append ".u8string()"
+    std::string tPath = mayushiis[rng].u8string();
     texture = IMG_LoadTexture(rendr, tPath.c_str());
     if (!texture) {
-        cout << "Failed to load the texture: Check for unsupported format." << endl;
+        cout << "Failed to load the texture: Check for unsupported format. Only static images are allowed" << endl;
     }
 
     int ww, wh;
@@ -84,7 +84,7 @@ SDL_AppResult SDL_AppInit(void** AppState, int, char**) {
     state->PreviousFrame = SDL_GetTicks();
     *AppState = state;
 
-    for (const auto& mayushii : fs::directory_iterator{msd})
+    for (const auto& mayushii : fs::directory_iterator{p})
         mayushiis.push_back(mayushii.path());
     fetch(state);
 
