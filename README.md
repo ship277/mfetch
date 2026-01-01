@@ -1,11 +1,12 @@
 # Mfetch
 Basically "Mayurifetch".
-It's a lightweight program meant to display images in a window, and get a new random one by clicking on it. 
+It's a lightweight program meant to cleanly display images in a window, and get a new random one by right-clicking on it. 
 
 ### Usage
 1. Place the executable in the same directory as the folder with your images
-2. Make sure it's named "Mayushii☆" (white star: u+2606). This name is hardcoded, but you can easily change it in the source code.
-3. Run the executable
+2. Make sure the folder with images is named "Mayushii" (This name is hardcoded, but you can easily change it in the source code and rebuild again).
+3. Run the executable.
+4. Left click to move window, right click to randomize pic, ESC to close window.
 
 ### Dependencies
 - SDL3
@@ -14,7 +15,7 @@ It's a lightweight program meant to display images in a window, and get a new ra
 
 ### Building from source
 > [!NOTE]
-> Building from source is currently the only way, but a release for windows is planned TBA.
+> A compiled release is available only for Windows. Sample assets are also in the release
 
 For GNU/Linux and Windows:
 ```sh
