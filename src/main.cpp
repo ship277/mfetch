@@ -30,7 +30,7 @@ MTexture currentTexture;
 SDL_Texture* texture;
 SDL_FRect shape;
 
-fs::path p = fs::current_path()/"Mayushii☆";
+fs::path p = fs::current_path()/"Mayushii";
 std::vector<fs::path> mayushiis;
 int rng;
 const float maxWw = 600, maxWh = 600; // you can set the maximum size the window will have; the longest side of the image will fit to that. aspect ratio preserved
